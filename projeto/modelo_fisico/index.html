@@ -1,0 +1,1904 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Base inicial da documentação tecnica e organizacional">
+      
+      
+      
+        <link rel="canonical" href="https://enzoemir.github.io/IDB_JOVEM_DOC/projeto/modelo_fisico/">
+      
+      
+        <link rel="prev" href="../prototipo_alta/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../imagens/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Modelo Físico - Documentação do Projeto</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelo-fisico-do-banco-de-dados" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Documentação do Projeto" class="md-header__button md-logo" aria-label="Documentação do Projeto" data-md-component="logo">
+      
+  <img src="../../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação do Projeto
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modelo Físico
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Alternar para tema claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para tema claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="pink"  aria-label="Alternar para tema escuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para tema escuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="pink"  aria-label="Usar preferência do sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Usar preferência do sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EnzoEmir/IDB_JOVEM_DOC" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Repositorio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../historia_usuario_novo/" class="md-tabs__link">
+          
+  
+  
+  Projeto
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação do Projeto" class="md-nav__button md-logo" aria-label="Documentação do Projeto" data-md-component="logo">
+      
+  <img src="../../imagens/logo.png" alt="logo">
+
+    </a>
+    Documentação do Projeto
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EnzoEmir/IDB_JOVEM_DOC" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Repositorio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projeto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projeto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../historia_usuario_novo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    História
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog_novo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backlog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../canvas_mvp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Canvas MVP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prototipo_alta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protótipo de alta fidelidade
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Físico
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modelo Físico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metodologia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visão Geral
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama Relacional
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalhamento-das-tabelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detalhamento das Tabelas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detalhamento das Tabelas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. admin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-voluntario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. voluntario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. evento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-atividade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. atividade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-banda_palestrante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. banda_palestrante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. produto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-participa-associativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. participa (associativa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-trabalha-associativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. trabalha (associativa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-alembic_version-controle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. alembic_version (controle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restricoes-de-integridade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrições de Integridade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restrições de Integridade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chaves-primarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaves Primárias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restricoes-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrições UNIQUE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chaves-estrangeiras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaves Estrangeiras
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacionamentos-cardinalidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relacionamentos (Cardinalidade)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensoes-habilitadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensões Habilitadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-ddl-resumo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script DDL (Resumo)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introdução
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metodologia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visão Geral
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama Relacional
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detalhamento-das-tabelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detalhamento das Tabelas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detalhamento das Tabelas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. admin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-voluntario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. voluntario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. evento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-atividade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. atividade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-banda_palestrante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. banda_palestrante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. produto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-participa-associativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. participa (associativa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-trabalha-associativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. trabalha (associativa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-alembic_version-controle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. alembic_version (controle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restricoes-de-integridade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrições de Integridade
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restrições de Integridade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chaves-primarias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaves Primárias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restricoes-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrições UNIQUE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chaves-estrangeiras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaves Estrangeiras
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacionamentos-cardinalidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relacionamentos (Cardinalidade)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensoes-habilitadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensões Habilitadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-ddl-resumo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script DDL (Resumo)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referências
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Histórico de Versão
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="modelo-fisico-do-banco-de-dados">Modelo Físico do Banco de Dados<a class="headerlink" href="#modelo-fisico-do-banco-de-dados" title="Permanent link">&para;</a></h1>
+<h2 id="introducao">Introdução<a class="headerlink" href="#introducao" title="Permanent link">&para;</a></h2>
+<p>O <strong>Modelo Físico</strong> representa a estrutura concreta do banco de dados, descrevendo de forma detalhada como as informações estão armazenadas no SGBD. Diferente do Modelo Conceitual (que apresenta entidades e relacionamentos de forma abstrata) e do Modelo Lógico (que define a estrutura independentemente do SGBD), o Modelo Físico contempla os tipos de dados específicos, restrições, chaves primárias, chaves estrangeiras, sequências, índices e demais elementos de implementação (HEUSER, 2009).</p>
+<p>Este documento apresenta o modelo físico do banco de dados utilizado pela plataforma <strong>IDB Jovem &amp; Teen</strong>, implementado em <strong>PostgreSQL 15.18</strong>. O modelo foi gerado a partir do dump da base de dados de produção (<code>dump_20260526_232450.sql</code>) e tem por objetivo documentar a estrutura atual de persistência da aplicação.</p>
+<hr />
+<h2 id="metodologia">Metodologia<a class="headerlink" href="#metodologia" title="Permanent link">&para;</a></h2>
+<p>A construção do modelo físico foi realizada a partir da análise do dump SQL exportado via <code>pg_dump</code>, contemplando:</p>
+<ol>
+<li>Identificação das tabelas, suas colunas e tipos de dados.</li>
+<li>Mapeamento das restrições de integridade (PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL).</li>
+<li>Identificação das sequências (<code>SERIAL</code>) utilizadas para geração de identificadores.</li>
+<li>Definição dos relacionamentos entre as entidades.</li>
+<li>Documentação das extensões habilitadas no banco (<code>pg_trgm</code>).</li>
+</ol>
+<hr />
+<h2 id="visao-geral">Visão Geral<a class="headerlink" href="#visao-geral" title="Permanent link">&para;</a></h2>
+<p>O banco de dados é composto por <strong>9 tabelas</strong>, sendo:</p>
+<ul>
+<li><strong>6 tabelas de entidade</strong>: <code>admin</code>, <code>voluntario</code>, <code>evento</code>, <code>atividade</code>, <code>banda_palestrante</code>, <code>produto</code>.</li>
+<li><strong>2 tabelas associativas</strong>: <code>participa</code> (evento × banda_palestrante) e <code>trabalha</code> (voluntario × evento).</li>
+<li><strong>1 tabela de controle de migração</strong>: <code>alembic_version</code>.</li>
+</ul>
+<p>A extensão <strong><code>pg_trgm</code></strong> está habilitada para suportar busca textual baseada em trigramas (similaridade de strings).</p>
+<hr />
+<h2 id="diagrama-relacional">Diagrama Relacional<a class="headerlink" href="#diagrama-relacional" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">                       ┌──────────────────────┐
+                       │       evento         │
+                       │──────────────────────│
+                       │ PK evento_id         │
+                       │    nome              │
+                       │    descricao         │
+                       │    local_latitude    │
+                       │    local_longitude   │
+                       │    data_inicio       │
+                       │    data_fim          │
+                       │    link_galeria      │
+                       │    calendario_evento_id │
+                       │    nome_local        │
+                       │    formulario_link   │
+                       └──────────┬───────────┘
+                                  │ 1
+              ┌───────────────────┼────────────────────┐
+              │ N                 │ N                  │ N
+   ┌──────────┴───────┐  ┌────────┴────────┐  ┌────────┴────────┐
+   │    atividade     │  │    participa    │  │    trabalha     │
+   │──────────────────│  │─────────────────│  │─────────────────│
+   │ PK atividade_id  │  │ PK,FK evento_id │  │ PK,FK voluntario_id │
+   │    nome          │  │ PK,FK partic._id│  │ PK,FK evento_id │
+   │    descricao     │  └────────┬────────┘  │    status       │
+   │    horario_inicio│           │ N         │    resposta_id  │
+   │    horario_term. │           │           └────────┬────────┘
+   │ FK evento_id     │           │                    │ N
+   └──────────────────┘  ┌────────┴──────────┐         │
+                         │ banda_palestrante │  ┌──────┴───────┐
+                         │───────────────────│  │  voluntario  │
+                         │ PK participante_id│  │──────────────│
+                         │    nome           │  │ PK voluntario_id │
+                         │    link_foto      │  │    nome      │
+                         │    profissao      │  │    email (UQ)│
+                         └───────────────────┘  └──────────────┘
+
+   ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
+   │      admin       │    │     produto      │    │ alembic_version  │
+   │──────────────────│    │──────────────────│    │──────────────────│
+   │ PK admin_id      │    │ PK produto_id    │    │ PK version_num   │
+   │    nome          │    │    nome          │    └──────────────────┘
+   │    email (UQ)    │    │    descricao     │
+   │    keycloak_id(UQ)    │    link_produto  │
+   └──────────────────┘    └──────────────────┘
+</code></pre>
+<hr />
+<h2 id="detalhamento-das-tabelas">Detalhamento das Tabelas<a class="headerlink" href="#detalhamento-das-tabelas" title="Permanent link">&para;</a></h2>
+<h3 id="1-admin">1. <code>admin</code><a class="headerlink" href="#1-admin" title="Permanent link">&para;</a></h3>
+<p>Armazena os usuários administradores da plataforma, integrados via Keycloak.</p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Restrições</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>admin_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, sequência</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code>, <strong>UNIQUE</strong></td>
+</tr>
+<tr>
+<td><code>keycloak_id</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code>, <strong>UNIQUE</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sequência:</strong> <code>admin_admin_id_seq</code></p>
+<hr />
+<h3 id="2-voluntario">2. <code>voluntario</code><a class="headerlink" href="#2-voluntario" title="Permanent link">&para;</a></h3>
+<p>Armazena os voluntários cadastrados na plataforma.</p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Restrições</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>voluntario_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, sequência</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code>, <strong>UNIQUE</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sequência:</strong> <code>voluntario_voluntario_id_seq</code></p>
+<hr />
+<h3 id="3-evento">3. <code>evento</code><a class="headerlink" href="#3-evento" title="Permanent link">&para;</a></h3>
+<p>Armazena os eventos divulgados e organizados pela IDB Jovem &amp; Teen.</p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Restrições</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>evento_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, sequência</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>descricao</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td><code>local_latitude</code></td>
+<td><code>numeric(10,7)</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td><code>local_longitude</code></td>
+<td><code>numeric(10,7)</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td><code>data_inicio</code></td>
+<td><code>timestamp with time zone</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>data_fim</code></td>
+<td><code>timestamp with time zone</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>link_galeria</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td><code>calendario_evento_id</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td><code>nome_local</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td><code>formulario_link</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sequência:</strong> <code>evento_evento_id_seq</code></p>
+<hr />
+<h3 id="4-atividade">4. <code>atividade</code><a class="headerlink" href="#4-atividade" title="Permanent link">&para;</a></h3>
+<p>Atividades que compõem a programação de um evento.</p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Restrições</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>atividade_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, sequência</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>descricao</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td><code>horario_inicio</code></td>
+<td><code>timestamp with time zone</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>horario_termino</code></td>
+<td><code>timestamp with time zone</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>evento_id</code></td>
+<td><code>integer</code></td>
+<td><code>NOT NULL</code>, <strong>FK</strong> → <code>evento(evento_id)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sequência:</strong> <code>atividade_atividade_id_seq</code></p>
+<hr />
+<h3 id="5-banda_palestrante">5. <code>banda_palestrante</code><a class="headerlink" href="#5-banda_palestrante" title="Permanent link">&para;</a></h3>
+<p>Bandas e palestrantes que participam dos eventos.</p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Restrições</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>participante_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, sequência</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>link_foto</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td><code>profissao</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sequência:</strong> <code>banda_palestrante_participante_id_seq</code></p>
+<hr />
+<h3 id="6-produto">6. <code>produto</code><a class="headerlink" href="#6-produto" title="Permanent link">&para;</a></h3>
+<p>Produtos divulgados pela plataforma.</p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Restrições</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>produto_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, sequência</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>descricao</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr>
+<td><code>link_produto</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sequência:</strong> <code>produto_produto_id_seq</code></p>
+<hr />
+<h3 id="7-participa-associativa">7. <code>participa</code> <em>(associativa)</em><a class="headerlink" href="#7-participa-associativa" title="Permanent link">&para;</a></h3>
+<p>Relacionamento N:N entre <code>evento</code> e <code>banda_palestrante</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Restrições</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>evento_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, <strong>FK</strong> → <code>evento(evento_id)</code></td>
+</tr>
+<tr>
+<td><code>participante_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, <strong>FK</strong> → <code>banda_palestrante(participante_id)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Chave Primária Composta:</strong> (<code>evento_id</code>, <code>participante_id</code>)</p>
+<hr />
+<h3 id="8-trabalha-associativa">8. <code>trabalha</code> <em>(associativa)</em><a class="headerlink" href="#8-trabalha-associativa" title="Permanent link">&para;</a></h3>
+<p>Relacionamento N:N entre <code>voluntario</code> e <code>evento</code>, com atributos próprios.</p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Restrições</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>voluntario_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, <strong>FK</strong> → <code>voluntario(voluntario_id)</code></td>
+</tr>
+<tr>
+<td><code>evento_id</code></td>
+<td><code>integer</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code>, <strong>FK</strong> → <code>evento(evento_id)</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>text</code></td>
+<td><code>NOT NULL</code></td>
+</tr>
+<tr>
+<td><code>resposta_id</code></td>
+<td><code>text</code></td>
+<td><code>NULL</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Chave Primária Composta:</strong> (<code>voluntario_id</code>, <code>evento_id</code>)</p>
+<hr />
+<h3 id="9-alembic_version-controle">9. <code>alembic_version</code> <em>(controle)</em><a class="headerlink" href="#9-alembic_version-controle" title="Permanent link">&para;</a></h3>
+<p>Tabela de controle de versões de migração do Alembic (SQLAlchemy).</p>
+<table>
+<thead>
+<tr>
+<th>Coluna</th>
+<th>Tipo</th>
+<th>Restrições</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>version_num</code></td>
+<td><code>character varying(32)</code></td>
+<td><strong>PK</strong>, <code>NOT NULL</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="restricoes-de-integridade">Restrições de Integridade<a class="headerlink" href="#restricoes-de-integridade" title="Permanent link">&para;</a></h2>
+<h3 id="chaves-primarias">Chaves Primárias<a class="headerlink" href="#chaves-primarias" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tabela</th>
+<th>Chave Primária</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>admin</code></td>
+<td><code>admin_id</code></td>
+</tr>
+<tr>
+<td><code>alembic_version</code></td>
+<td><code>version_num</code></td>
+</tr>
+<tr>
+<td><code>atividade</code></td>
+<td><code>atividade_id</code></td>
+</tr>
+<tr>
+<td><code>banda_palestrante</code></td>
+<td><code>participante_id</code></td>
+</tr>
+<tr>
+<td><code>evento</code></td>
+<td><code>evento_id</code></td>
+</tr>
+<tr>
+<td><code>participa</code></td>
+<td>(<code>evento_id</code>, <code>participante_id</code>)</td>
+</tr>
+<tr>
+<td><code>produto</code></td>
+<td><code>produto_id</code></td>
+</tr>
+<tr>
+<td><code>trabalha</code></td>
+<td>(<code>voluntario_id</code>, <code>evento_id</code>)</td>
+</tr>
+<tr>
+<td><code>voluntario</code></td>
+<td><code>voluntario_id</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="restricoes-unique">Restrições UNIQUE<a class="headerlink" href="#restricoes-unique" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tabela</th>
+<th>Coluna(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>admin</code></td>
+<td><code>email</code></td>
+</tr>
+<tr>
+<td><code>admin</code></td>
+<td><code>keycloak_id</code></td>
+</tr>
+<tr>
+<td><code>voluntario</code></td>
+<td><code>email</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="chaves-estrangeiras">Chaves Estrangeiras<a class="headerlink" href="#chaves-estrangeiras" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Constraint</th>
+<th>Origem</th>
+<th>Destino</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>atividade_evento_id_fkey</code></td>
+<td><code>atividade.evento_id</code></td>
+<td><code>evento(evento_id)</code></td>
+</tr>
+<tr>
+<td><code>participa_evento_id_fkey</code></td>
+<td><code>participa.evento_id</code></td>
+<td><code>evento(evento_id)</code></td>
+</tr>
+<tr>
+<td><code>participa_participante_id_fkey</code></td>
+<td><code>participa.participante_id</code></td>
+<td><code>banda_palestrante(participante_id)</code></td>
+</tr>
+<tr>
+<td><code>trabalha_evento_id_fkey</code></td>
+<td><code>trabalha.evento_id</code></td>
+<td><code>evento(evento_id)</code></td>
+</tr>
+<tr>
+<td><code>trabalha_voluntario_id_fkey</code></td>
+<td><code>trabalha.voluntario_id</code></td>
+<td><code>voluntario(voluntario_id)</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="relacionamentos-cardinalidade">Relacionamentos (Cardinalidade)<a class="headerlink" href="#relacionamentos-cardinalidade" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Relacionamento</th>
+<th>Cardinalidade</th>
+<th>Tabela Associativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>evento</code> ↔ <code>atividade</code></td>
+<td>1 : N</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>evento</code> ↔ <code>banda_palestrante</code></td>
+<td>N : N</td>
+<td><code>participa</code></td>
+</tr>
+<tr>
+<td><code>evento</code> ↔ <code>voluntario</code></td>
+<td>N : N</td>
+<td><code>trabalha</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="extensoes-habilitadas">Extensões Habilitadas<a class="headerlink" href="#extensoes-habilitadas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Extensão</th>
+<th>Finalidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pg_trgm</code></td>
+<td>Mensuração de similaridade textual e indexação baseada em trigramas. Utilizada para busca aproximada (fuzzy search) em campos textuais como nomes de eventos, atividades e participantes.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="script-ddl-resumo">Script DDL (Resumo)<a class="headerlink" href="#script-ddl-resumo" title="Permanent link">&para;</a></h2>
+<pre><code class="language-sql">CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
+
+CREATE TABLE public.admin (
+    admin_id    integer NOT NULL,
+    nome        text    NOT NULL,
+    email       text    NOT NULL,
+    keycloak_id text    NOT NULL,
+    CONSTRAINT admin_pkey         PRIMARY KEY (admin_id),
+    CONSTRAINT admin_email_key    UNIQUE      (email),
+    CONSTRAINT admin_keycloak_id_key UNIQUE   (keycloak_id)
+);
+
+CREATE TABLE public.voluntario (
+    voluntario_id integer NOT NULL,
+    nome          text    NOT NULL,
+    email         text    NOT NULL,
+    CONSTRAINT voluntario_pkey      PRIMARY KEY (voluntario_id),
+    CONSTRAINT voluntario_email_key UNIQUE      (email)
+);
+
+CREATE TABLE public.evento (
+    evento_id            integer                  NOT NULL,
+    nome                 text                     NOT NULL,
+    descricao            text,
+    local_latitude       numeric(10,7),
+    local_longitude      numeric(10,7),
+    data_inicio          timestamp with time zone NOT NULL,
+    data_fim             timestamp with time zone NOT NULL,
+    link_galeria         text,
+    calendario_evento_id text,
+    nome_local           text,
+    formulario_link      text,
+    CONSTRAINT evento_pkey PRIMARY KEY (evento_id)
+);
+
+CREATE TABLE public.atividade (
+    atividade_id    integer                  NOT NULL,
+    nome            text                     NOT NULL,
+    descricao       text,
+    horario_inicio  timestamp with time zone NOT NULL,
+    horario_termino timestamp with time zone NOT NULL,
+    evento_id       integer                  NOT NULL,
+    CONSTRAINT atividade_pkey          PRIMARY KEY (atividade_id),
+    CONSTRAINT atividade_evento_id_fkey FOREIGN KEY (evento_id)
+        REFERENCES public.evento(evento_id)
+);
+
+CREATE TABLE public.banda_palestrante (
+    participante_id integer NOT NULL,
+    nome            text    NOT NULL,
+    link_foto       text,
+    profissao       text,
+    CONSTRAINT banda_palestrante_pkey PRIMARY KEY (participante_id)
+);
+
+CREATE TABLE public.produto (
+    produto_id   integer NOT NULL,
+    nome         text    NOT NULL,
+    descricao    text,
+    link_produto text,
+    CONSTRAINT produto_pkey PRIMARY KEY (produto_id)
+);
+
+CREATE TABLE public.participa (
+    evento_id       integer NOT NULL,
+    participante_id integer NOT NULL,
+    CONSTRAINT participa_pkey PRIMARY KEY (evento_id, participante_id),
+    CONSTRAINT participa_evento_id_fkey       FOREIGN KEY (evento_id)
+        REFERENCES public.evento(evento_id),
+    CONSTRAINT participa_participante_id_fkey FOREIGN KEY (participante_id)
+        REFERENCES public.banda_palestrante(participante_id)
+);
+
+CREATE TABLE public.trabalha (
+    voluntario_id integer NOT NULL,
+    evento_id     integer NOT NULL,
+    status        text    NOT NULL,
+    resposta_id   text,
+    CONSTRAINT trabalha_pkey               PRIMARY KEY (voluntario_id, evento_id),
+    CONSTRAINT trabalha_voluntario_id_fkey FOREIGN KEY (voluntario_id)
+        REFERENCES public.voluntario(voluntario_id),
+    CONSTRAINT trabalha_evento_id_fkey     FOREIGN KEY (evento_id)
+        REFERENCES public.evento(evento_id)
+);
+
+CREATE TABLE public.alembic_version (
+    version_num character varying(32) NOT NULL,
+    CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num)
+);
+</code></pre>
+<hr />
+<h2 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>HEUSER, Carlos Alberto. <em>Projeto de Banco de Dados</em>. 6. ed. Porto Alegre: Bookman, 2009.</li>
+<li>ELMASRI, Ramez; NAVATHE, Shamkant B. <em>Sistemas de Banco de Dados</em>. 7. ed. São Paulo: Pearson, 2018.</li>
+<li>The PostgreSQL Global Development Group. <strong>PostgreSQL 15 Documentation</strong>. Disponível em: <a href="https://www.postgresql.org/docs/15/">https://www.postgresql.org/docs/15/</a>.</li>
+</ul>
+<hr />
+<h2 id="historico-de-versao">Histórico de Versão<a class="headerlink" href="#historico-de-versao" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Data</th>
+<th>Descrição</th>
+<th>Autor(es)</th>
+<th>Revisor(es)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0.1</code></td>
+<td>26/05/2026</td>
+<td>Criação do modelo físico a partir do dump PostgreSQL.</td>
+<td><a href="https://github.com/VictorPontual">Victor Pontual</a></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.instant", "navigation.instant.progress", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
