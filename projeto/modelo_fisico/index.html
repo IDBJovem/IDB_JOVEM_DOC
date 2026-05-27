@@ -1188,51 +1188,104 @@
 <p>A extensão <strong><code>pg_trgm</code></strong> está habilitada para suportar busca textual baseada em trigramas (similaridade de strings).</p>
 <hr />
 <h2 id="diagrama-relacional">Diagrama Relacional<a class="headerlink" href="#diagrama-relacional" title="Permanent link">&para;</a></h2>
-<pre><code class="language-text">                       ┌──────────────────────┐
-                       │       evento         │
-                       │──────────────────────│
-                       │ PK evento_id         │
-                       │    nome              │
-                       │    descricao         │
-                       │    local_latitude    │
-                       │    local_longitude   │
-                       │    data_inicio       │
-                       │    data_fim          │
-                       │    link_galeria      │
-                       │    calendario_evento_id │
-                       │    nome_local        │
-                       │    formulario_link   │
-                       └──────────┬───────────┘
-                                  │ 1
-              ┌───────────────────┼────────────────────┐
-              │ N                 │ N                  │ N
-   ┌──────────┴───────┐  ┌────────┴────────┐  ┌────────┴────────┐
-   │    atividade     │  │    participa    │  │    trabalha     │
-   │──────────────────│  │─────────────────│  │─────────────────│
-   │ PK atividade_id  │  │ PK,FK evento_id │  │ PK,FK voluntario_id │
-   │    nome          │  │ PK,FK partic._id│  │ PK,FK evento_id │
-   │    descricao     │  └────────┬────────┘  │    status       │
-   │    horario_inicio│           │ N         │    resposta_id  │
-   │    horario_term. │           │           └────────┬────────┘
-   │ FK evento_id     │           │                    │ N
-   └──────────────────┘  ┌────────┴──────────┐         │
-                         │ banda_palestrante │  ┌──────┴───────┐
-                         │───────────────────│  │  voluntario  │
-                         │ PK participante_id│  │──────────────│
-                         │    nome           │  │ PK voluntario_id │
-                         │    link_foto      │  │    nome      │
-                         │    profissao      │  │    email (UQ)│
-                         └───────────────────┘  └──────────────┘
+<pre class="mermaid"><code>%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E3F2FD",
+    "primaryTextColor": "#0D1B2A",
+    "primaryBorderColor": "#1E88E5",
+    "lineColor": "#1565C0",
+    "secondaryColor": "#FFF3E0",
+    "tertiaryColor": "#E8F5E9",
+    "background": "#FFFFFF",
+    "fontFamily": "Trebuchet MS"
+  }
+}}%%
 
-   ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
-   │      admin       │    │     produto      │    │ alembic_version  │
-   │──────────────────│    │──────────────────│    │──────────────────│
-   │ PK admin_id      │    │ PK produto_id    │    │ PK version_num   │
-   │    nome          │    │    nome          │    └──────────────────┘
-   │    email (UQ)    │    │    descricao     │
-   │    keycloak_id(UQ)    │    link_produto  │
-   └──────────────────┘    └──────────────────┘
-</code></pre>
+erDiagram
+
+    ADMIN {
+        int admin_id PK
+        text nome
+        text email UK
+        text keycloak_id UK
+    }
+
+    VOLUNTARIO {
+        int voluntario_id PK
+        text nome
+        text email UK
+    }
+
+    EVENTO {
+        int evento_id PK
+        text nome
+        text descricao
+        numeric_10_7 local_latitude
+        numeric_10_7 local_longitude
+        timestamptz data_inicio
+        timestamptz data_fim
+        text link_galeria
+        text calendario_evento_id
+        text nome_local
+        text formulario_link
+    }
+
+    ATIVIDADE {
+        int atividade_id PK
+        text nome
+        text descricao
+        timestamptz horario_inicio
+        timestamptz horario_termino
+        int evento_id FK
+    }
+
+    BANDA_PALESTRANTE {
+        int participante_id PK
+        text nome
+        text link_foto
+        text profissao
+    }
+
+    PRODUTO {
+        int produto_id PK
+        text nome
+        text descricao
+        text link_produto
+    }
+
+    PARTICIPA {
+        int evento_id PK, FK
+        int participante_id PK, FK
+    }
+
+    TRABALHA {
+        int voluntario_id PK, FK
+        int evento_id PK, FK
+        text status
+        text resposta_id
+    }
+
+    ALEMBIC_VERSION {
+        varchar_32 version_num PK
+    }
+
+    EVENTO ||--o{ ATIVIDADE : possui
+    EVENTO ||--o{ PARTICIPA : inclui
+    BANDA_PALESTRANTE ||--o{ PARTICIPA : participa
+
+    EVENTO ||--o{ TRABALHA : recebe
+    VOLUNTARIO ||--o{ TRABALHA : atua
+
+    style ADMIN fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#000
+    style VOLUNTARIO fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#000
+    style EVENTO fill:#FFE0B2,stroke:#EF6C00,stroke-width:3px,color:#000
+    style ATIVIDADE fill:#FFF9C4,stroke:#F9A825,stroke-width:2px,color:#000
+    style BANDA_PALESTRANTE fill:#E1BEE7,stroke:#8E24AA,stroke-width:2px,color:#000
+    style PRODUTO fill:#D7CCC8,stroke:#6D4C41,stroke-width:2px,color:#000
+    style PARTICIPA fill:#F8BBD0,stroke:#C2185B,stroke-width:2px,color:#000
+    style TRABALHA fill:#B2DFDB,stroke:#00695C,stroke-width:2px,color:#000
+    style ALEMBIC_VERSION fill:#ECEFF1,stroke:#455A64,stroke-width:2px,color:#000</code></pre>
 <hr />
 <h2 id="detalhamento-das-tabelas">Detalhamento das Tabelas<a class="headerlink" href="#detalhamento-das-tabelas" title="Permanent link">&para;</a></h2>
 <h3 id="1-admin">1. <code>admin</code><a class="headerlink" href="#1-admin" title="Permanent link">&para;</a></h3>
@@ -1718,96 +1771,96 @@
 </table>
 <hr />
 <h2 id="script-ddl-resumo">Script DDL (Resumo)<a class="headerlink" href="#script-ddl-resumo" title="Permanent link">&para;</a></h2>
-<pre><code class="language-sql">CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA public;
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="n">EXTENSION</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">pg_trgm</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">SCHEMA</span><span class="w"> </span><span class="k">public</span><span class="p">;</span>
 
-CREATE TABLE public.admin (
-    admin_id    integer NOT NULL,
-    nome        text    NOT NULL,
-    email       text    NOT NULL,
-    keycloak_id text    NOT NULL,
-    CONSTRAINT admin_pkey         PRIMARY KEY (admin_id),
-    CONSTRAINT admin_email_key    UNIQUE      (email),
-    CONSTRAINT admin_keycloak_id_key UNIQUE   (keycloak_id)
-);
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="k">admin</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">admin_id</span><span class="w">    </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nome</span><span class="w">        </span><span class="nb">text</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">email</span><span class="w">       </span><span class="nb">text</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">keycloak_id</span><span class="w"> </span><span class="nb">text</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">admin_pkey</span><span class="w">         </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">admin_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">admin_email_key</span><span class="w">    </span><span class="k">UNIQUE</span><span class="w">      </span><span class="p">(</span><span class="n">email</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">admin_keycloak_id_key</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w">   </span><span class="p">(</span><span class="n">keycloak_id</span><span class="p">)</span>
+<span class="p">);</span>
 
-CREATE TABLE public.voluntario (
-    voluntario_id integer NOT NULL,
-    nome          text    NOT NULL,
-    email         text    NOT NULL,
-    CONSTRAINT voluntario_pkey      PRIMARY KEY (voluntario_id),
-    CONSTRAINT voluntario_email_key UNIQUE      (email)
-);
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">voluntario</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">voluntario_id</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nome</span><span class="w">          </span><span class="nb">text</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">email</span><span class="w">         </span><span class="nb">text</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">voluntario_pkey</span><span class="w">      </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">voluntario_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">voluntario_email_key</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w">      </span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+<span class="p">);</span>
 
-CREATE TABLE public.evento (
-    evento_id            integer                  NOT NULL,
-    nome                 text                     NOT NULL,
-    descricao            text,
-    local_latitude       numeric(10,7),
-    local_longitude      numeric(10,7),
-    data_inicio          timestamp with time zone NOT NULL,
-    data_fim             timestamp with time zone NOT NULL,
-    link_galeria         text,
-    calendario_evento_id text,
-    nome_local           text,
-    formulario_link      text,
-    CONSTRAINT evento_pkey PRIMARY KEY (evento_id)
-);
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">evento</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">evento_id</span><span class="w">            </span><span class="nb">integer</span><span class="w">                  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nome</span><span class="w">                 </span><span class="nb">text</span><span class="w">                     </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">descricao</span><span class="w">            </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="n">local_latitude</span><span class="w">       </span><span class="nb">numeric</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span>
+<span class="w">    </span><span class="n">local_longitude</span><span class="w">      </span><span class="nb">numeric</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span>
+<span class="w">    </span><span class="n">data_inicio</span><span class="w">          </span><span class="k">timestamp</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="k">time</span><span class="w"> </span><span class="k">zone</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">data_fim</span><span class="w">             </span><span class="k">timestamp</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="k">time</span><span class="w"> </span><span class="k">zone</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">link_galeria</span><span class="w">         </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="n">calendario_evento_id</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nome_local</span><span class="w">           </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="n">formulario_link</span><span class="w">      </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">evento_pkey</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">evento_id</span><span class="p">)</span>
+<span class="p">);</span>
 
-CREATE TABLE public.atividade (
-    atividade_id    integer                  NOT NULL,
-    nome            text                     NOT NULL,
-    descricao       text,
-    horario_inicio  timestamp with time zone NOT NULL,
-    horario_termino timestamp with time zone NOT NULL,
-    evento_id       integer                  NOT NULL,
-    CONSTRAINT atividade_pkey          PRIMARY KEY (atividade_id),
-    CONSTRAINT atividade_evento_id_fkey FOREIGN KEY (evento_id)
-        REFERENCES public.evento(evento_id)
-);
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">atividade</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">atividade_id</span><span class="w">    </span><span class="nb">integer</span><span class="w">                  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nome</span><span class="w">            </span><span class="nb">text</span><span class="w">                     </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">descricao</span><span class="w">       </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="n">horario_inicio</span><span class="w">  </span><span class="k">timestamp</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="k">time</span><span class="w"> </span><span class="k">zone</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">horario_termino</span><span class="w"> </span><span class="k">timestamp</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="k">time</span><span class="w"> </span><span class="k">zone</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">evento_id</span><span class="w">       </span><span class="nb">integer</span><span class="w">                  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">atividade_pkey</span><span class="w">          </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">atividade_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">atividade_evento_id_fkey</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">evento_id</span><span class="p">)</span>
+<span class="w">        </span><span class="k">REFERENCES</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">evento</span><span class="p">(</span><span class="n">evento_id</span><span class="p">)</span>
+<span class="p">);</span>
 
-CREATE TABLE public.banda_palestrante (
-    participante_id integer NOT NULL,
-    nome            text    NOT NULL,
-    link_foto       text,
-    profissao       text,
-    CONSTRAINT banda_palestrante_pkey PRIMARY KEY (participante_id)
-);
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">banda_palestrante</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">participante_id</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nome</span><span class="w">            </span><span class="nb">text</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">link_foto</span><span class="w">       </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="n">profissao</span><span class="w">       </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">banda_palestrante_pkey</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">participante_id</span><span class="p">)</span>
+<span class="p">);</span>
 
-CREATE TABLE public.produto (
-    produto_id   integer NOT NULL,
-    nome         text    NOT NULL,
-    descricao    text,
-    link_produto text,
-    CONSTRAINT produto_pkey PRIMARY KEY (produto_id)
-);
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">produto</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">produto_id</span><span class="w">   </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">nome</span><span class="w">         </span><span class="nb">text</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">descricao</span><span class="w">    </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="n">link_produto</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">produto_pkey</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">produto_id</span><span class="p">)</span>
+<span class="p">);</span>
 
-CREATE TABLE public.participa (
-    evento_id       integer NOT NULL,
-    participante_id integer NOT NULL,
-    CONSTRAINT participa_pkey PRIMARY KEY (evento_id, participante_id),
-    CONSTRAINT participa_evento_id_fkey       FOREIGN KEY (evento_id)
-        REFERENCES public.evento(evento_id),
-    CONSTRAINT participa_participante_id_fkey FOREIGN KEY (participante_id)
-        REFERENCES public.banda_palestrante(participante_id)
-);
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">participa</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">evento_id</span><span class="w">       </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">participante_id</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">participa_pkey</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">evento_id</span><span class="p">,</span><span class="w"> </span><span class="n">participante_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">participa_evento_id_fkey</span><span class="w">       </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">evento_id</span><span class="p">)</span>
+<span class="w">        </span><span class="k">REFERENCES</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">evento</span><span class="p">(</span><span class="n">evento_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">participa_participante_id_fkey</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">participante_id</span><span class="p">)</span>
+<span class="w">        </span><span class="k">REFERENCES</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">banda_palestrante</span><span class="p">(</span><span class="n">participante_id</span><span class="p">)</span>
+<span class="p">);</span>
 
-CREATE TABLE public.trabalha (
-    voluntario_id integer NOT NULL,
-    evento_id     integer NOT NULL,
-    status        text    NOT NULL,
-    resposta_id   text,
-    CONSTRAINT trabalha_pkey               PRIMARY KEY (voluntario_id, evento_id),
-    CONSTRAINT trabalha_voluntario_id_fkey FOREIGN KEY (voluntario_id)
-        REFERENCES public.voluntario(voluntario_id),
-    CONSTRAINT trabalha_evento_id_fkey     FOREIGN KEY (evento_id)
-        REFERENCES public.evento(evento_id)
-);
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">trabalha</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">voluntario_id</span><span class="w"> </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">evento_id</span><span class="w">     </span><span class="nb">integer</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">status</span><span class="w">        </span><span class="nb">text</span><span class="w">    </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">resposta_id</span><span class="w">   </span><span class="nb">text</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">trabalha_pkey</span><span class="w">               </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">voluntario_id</span><span class="p">,</span><span class="w"> </span><span class="n">evento_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">trabalha_voluntario_id_fkey</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">voluntario_id</span><span class="p">)</span>
+<span class="w">        </span><span class="k">REFERENCES</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">voluntario</span><span class="p">(</span><span class="n">voluntario_id</span><span class="p">),</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">trabalha_evento_id_fkey</span><span class="w">     </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">evento_id</span><span class="p">)</span>
+<span class="w">        </span><span class="k">REFERENCES</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">evento</span><span class="p">(</span><span class="n">evento_id</span><span class="p">)</span>
+<span class="p">);</span>
 
-CREATE TABLE public.alembic_version (
-    version_num character varying(32) NOT NULL,
-    CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num)
-);
-</code></pre>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">public</span><span class="p">.</span><span class="n">alembic_version</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">version_num</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">alembic_version_pkc</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">version_num</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
 <hr />
 <h2 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <ul>
