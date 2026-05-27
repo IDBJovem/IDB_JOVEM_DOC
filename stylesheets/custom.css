@@ -104,8 +104,7 @@
 .md-typeset .admonition {
   border-left: 4px solid var(--md-primary-fg-color);
   border-radius: 4px;
-  background-color: var(--md-primary-fg-color--light);
-  opacity: 0.15;
+  background-color: rgba(141, 166, 126, 0.15);
 }
 
 [data-md-color-scheme="slate"] .md-typeset .admonition {
@@ -191,8 +190,7 @@
 
 /* Código com estilo minimalista */
 .md-typeset code {
-  background-color: var(--md-primary-fg-color--light);
-  opacity: 0.2;
+  background-color: rgba(141, 166, 126, 0.2);
   border-radius: 3px;
   padding: 2px 6px;
   font-size: 0.85em;
@@ -204,8 +202,7 @@
 
 .md-typeset pre {
   border-radius: 4px;
-  border: 1px solid var(--md-primary-fg-color--light);
-  opacity: 0.1;
+  border: 1px solid rgba(141, 166, 126, 0.3);
 }
 
 /* Sidebar refinada */
