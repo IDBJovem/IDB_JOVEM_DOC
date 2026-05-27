@@ -34,51 +34,105 @@ A extensão **`pg_trgm`** está habilitada para suportar busca textual baseada e
 
 ## Diagrama Relacional
 
-```text
-                       ┌──────────────────────┐
-                       │       evento         │
-                       │──────────────────────│
-                       │ PK evento_id         │
-                       │    nome              │
-                       │    descricao         │
-                       │    local_latitude    │
-                       │    local_longitude   │
-                       │    data_inicio       │
-                       │    data_fim          │
-                       │    link_galeria      │
-                       │    calendario_evento_id │
-                       │    nome_local        │
-                       │    formulario_link   │
-                       └──────────┬───────────┘
-                                  │ 1
-              ┌───────────────────┼────────────────────┐
-              │ N                 │ N                  │ N
-   ┌──────────┴───────┐  ┌────────┴────────┐  ┌────────┴────────┐
-   │    atividade     │  │    participa    │  │    trabalha     │
-   │──────────────────│  │─────────────────│  │─────────────────│
-   │ PK atividade_id  │  │ PK,FK evento_id │  │ PK,FK voluntario_id │
-   │    nome          │  │ PK,FK partic._id│  │ PK,FK evento_id │
-   │    descricao     │  └────────┬────────┘  │    status       │
-   │    horario_inicio│           │ N         │    resposta_id  │
-   │    horario_term. │           │           └────────┬────────┘
-   │ FK evento_id     │           │                    │ N
-   └──────────────────┘  ┌────────┴──────────┐         │
-                         │ banda_palestrante │  ┌──────┴───────┐
-                         │───────────────────│  │  voluntario  │
-                         │ PK participante_id│  │──────────────│
-                         │    nome           │  │ PK voluntario_id │
-                         │    link_foto      │  │    nome      │
-                         │    profissao      │  │    email (UQ)│
-                         └───────────────────┘  └──────────────┘
+```mermaid
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#E3F2FD",
+    "primaryTextColor": "#0D1B2A",
+    "primaryBorderColor": "#1E88E5",
+    "lineColor": "#1565C0",
+    "secondaryColor": "#FFF3E0",
+    "tertiaryColor": "#E8F5E9",
+    "background": "#FFFFFF",
+    "fontFamily": "Trebuchet MS"
+  }
+}}%%
 
-   ┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
-   │      admin       │    │     produto      │    │ alembic_version  │
-   │──────────────────│    │──────────────────│    │──────────────────│
-   │ PK admin_id      │    │ PK produto_id    │    │ PK version_num   │
-   │    nome          │    │    nome          │    └──────────────────┘
-   │    email (UQ)    │    │    descricao     │
-   │    keycloak_id(UQ)    │    link_produto  │
-   └──────────────────┘    └──────────────────┘
+erDiagram
+
+    ADMIN {
+        int admin_id PK
+        text nome
+        text email UK
+        text keycloak_id UK
+    }
+
+    VOLUNTARIO {
+        int voluntario_id PK
+        text nome
+        text email UK
+    }
+
+    EVENTO {
+        int evento_id PK
+        text nome
+        text descricao
+        numeric_10_7 local_latitude
+        numeric_10_7 local_longitude
+        timestamptz data_inicio
+        timestamptz data_fim
+        text link_galeria
+        text calendario_evento_id
+        text nome_local
+        text formulario_link
+    }
+
+    ATIVIDADE {
+        int atividade_id PK
+        text nome
+        text descricao
+        timestamptz horario_inicio
+        timestamptz horario_termino
+        int evento_id FK
+    }
+
+    BANDA_PALESTRANTE {
+        int participante_id PK
+        text nome
+        text link_foto
+        text profissao
+    }
+
+    PRODUTO {
+        int produto_id PK
+        text nome
+        text descricao
+        text link_produto
+    }
+
+    PARTICIPA {
+        int evento_id PK, FK
+        int participante_id PK, FK
+    }
+
+    TRABALHA {
+        int voluntario_id PK, FK
+        int evento_id PK, FK
+        text status
+        text resposta_id
+    }
+
+    ALEMBIC_VERSION {
+        varchar_32 version_num PK
+    }
+
+    EVENTO ||--o{ ATIVIDADE : possui
+    EVENTO ||--o{ PARTICIPA : inclui
+    BANDA_PALESTRANTE ||--o{ PARTICIPA : participa
+
+    EVENTO ||--o{ TRABALHA : recebe
+    VOLUNTARIO ||--o{ TRABALHA : atua
+
+    style ADMIN fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#000
+    style VOLUNTARIO fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#000
+    style EVENTO fill:#FFE0B2,stroke:#EF6C00,stroke-width:3px,color:#000
+    style ATIVIDADE fill:#FFF9C4,stroke:#F9A825,stroke-width:2px,color:#000
+    style BANDA_PALESTRANTE fill:#E1BEE7,stroke:#8E24AA,stroke-width:2px,color:#000
+    style PRODUTO fill:#D7CCC8,stroke:#6D4C41,stroke-width:2px,color:#000
+    style PARTICIPA fill:#F8BBD0,stroke:#C2185B,stroke-width:2px,color:#000
+    style TRABALHA fill:#B2DFDB,stroke:#00695C,stroke-width:2px,color:#000
+    style ALEMBIC_VERSION fill:#ECEFF1,stroke:#455A64,stroke-width:2px,color:#000
 ```
 
 ---
