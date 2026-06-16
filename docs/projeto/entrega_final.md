@@ -10,18 +10,25 @@ Seu principal objetivo é reunir tudo em um único ambiente acessível, onde mem
 
 Além disso, oferece suporte a líderes e administradores por meio de funcionalidades de organização de eventos, gerenciamento de voluntários e divulgação de informações.
 
+<div align="center">
+
 | Item | Detalhe |
 |------|---------|
 | Cliente | Pra. Raquel Gomes — Diretora Nacional e Regional de Adolescentes (Região Central) |
 | Sistema em produção | [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) |
 | Repositório | [github.com/IDBJovem](https://github.com/IDBJovem) |
 | Documentação | [idbjovem.github.io/IDB_JOVEM_DOC](https://idbjovem.github.io/IDB_JOVEM_DOC/) |
-| Hospedagem | Hostinger |
+| Hospedagem Back-end | Hostinger |
+| Hospedagem Front-end | Vercel |
 | Stack | Python, FastAPI, PostgreSQL, Docker, React, Playwright |
+
+</div>
 
 ---
 
 ## Equipe
+
+<div align="center">
 
 | Membro | GitHub |
 |--------|--------|
@@ -31,6 +38,8 @@ Além disso, oferece suporte a líderes e administradores por meio de funcionali
 | Marcelo Makoto | [@MM4k](https://github.com/MM4k) |
 | Maria Eduarda | [@dudaa28](https://github.com/dudaa28) |
 | Victor Pontual | [@VictorPontual](https://github.com/VictorPontual) |
+
+</div>
 
 ---
 
@@ -46,6 +55,8 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 
 ## Ponto de Controle 1
 
+<div align="center">
+
 | Artefato | |
 |----------|-|
 | Backlog do Produto | [Ver documentação](https://idbjovem.github.io/IDB_JOVEM_DOC/) |
@@ -55,9 +66,13 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 | Banco de dados | PostgreSQL com IDE integrada |
 | Front-end | Hello World React |
 
+</div>
+
 ---
 
 ## Ponto de Controle 2
+
+<div align="center">
 
 | Artefato | |
 |----------|-|
@@ -67,9 +82,13 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 | Testes parametrizados | Cobertura dos principais fluxos da API |
 | Testes de integração | Apontando para endpoints em container |
 
+</div>
+
 ---
 
 ## Ponto de Controle 3
+
+<div align="center">
 
 | Artefato | |
 |----------|-|
@@ -77,12 +96,30 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 | Validação com a cliente | Pra. Raquel Gomes com conta corporativa em produção |
 | Vídeo tutorial | Treinamento de uso do sistema |
 | Testes E2E | Playwright cobrindo os fluxos críticos |
-| Hospedagem | [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) — Hostinger |
+| Hospedagem | Front: Vercel — Back: [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) (Hostinger) |
+
+</div>
+
+### Tecnologias do Front-end
+
+| Tecnologia | Descrição |
+|------------|-----------|
+| [React 19](https://react.dev/) | Biblioteca JavaScript para criação da interface de usuário |
+| [Vite](https://vitejs.dev/) | Ferramenta de build extremamente rápida e servidor de desenvolvimento |
+| [Tailwind CSS 4](https://tailwindcss.com/) | Framework de CSS utilitário para estilização rápida e responsiva |
+| [React Router DOM](https://reactrouter.com/) | Biblioteca para gerenciamento de rotas e navegação da aplicação |
+| [Lucide React](https://lucide.dev/) | Biblioteca de ícones modernos e limpos |
+| [Playwright](https://playwright.dev/) | Framework de testes End-to-End (E2E) para testar fluxos de interface |
+| [NYC / Istanbul](https://istanbul.js.org/) | Ferramenta de instrumentação e relatório para cobertura de testes |
 
 ---
 
 ## Histórico de Versão
 
+<div align="center">
+
 | Versão | Data | Descrição | Autor(es) |
 |--------|------|-----------|-----------|
 | `1.0` | 16/06/2026 | Criação da página de entrega final | [Enzo Emir](https://github.com/EnzoEmir), [Gabriel Monteiro](https://github.com/GabrielSMonteiro), [Leticia Arisa](https://github.com/Leticia-Arisa-K-Higa), [Marcelo Makoto](https://github.com/MM4k), [Maria Eduarda](https://github.com/dudaa28), [Victor Pontual](https://github.com/VictorPontual) |
+
+</div>
