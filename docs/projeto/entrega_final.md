@@ -16,7 +16,7 @@ Além disso, oferece suporte a líderes e administradores por meio de funcionali
 | Sistema em produção | [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) |
 | Repositório | [github.com/IDBJovem](https://github.com/IDBJovem) |
 | Documentação | [idbjovem.github.io/IDB_JOVEM_DOC](https://idbjovem.github.io/IDB_JOVEM_DOC/) |
-| Hospedagem Back-end | Hostinger |
+| Hospedagem Back-end | Hostinger VPS KVM 2 |
 | Hospedagem Front-end | Vercel |
 | Stack | Python, FastAPI, PostgreSQL, Docker, React, Playwright |
 
@@ -81,7 +81,7 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 | Hospedagem Front-end | Vercel |
 | Hospedagem Back-end | [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) — Hostinger |
 
-### Tecnologias do Front-end
+### Stacks do Front-end
 
 | Tecnologia | Descrição |
 |:-----------|:----------|
@@ -92,6 +92,34 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 | [Lucide React](https://lucide.dev/) | Biblioteca de ícones modernos e limpos |
 | [Playwright](https://playwright.dev/) | Framework de testes End-to-End (E2E) para testar fluxos de interface |
 | [NYC / Istanbul](https://istanbul.js.org/) | Ferramenta de instrumentação e relatório para cobertura de testes |
+
+### Hospedagem
+
+> 📄 A documentação completa sobre o levantamento de hospedagem pode ser acessada em: [Hospedagem_IDB.pdf](../assets/Hospedagem_IDB.pdf)
+
+O projeto adota uma arquitetura dividida: o **frontend** é servido via CDN global pela **Vercel** (gratuito, deploy automático a cada push no GitHub), enquanto o **backend**, banco de dados e autenticação rodam em um **VPS Hostinger KVM 2**.
+
+#### Especificações do VPS
+
+| Recurso | Especificação |
+|:--------|:--------------|
+| CPU | 2 vCPUs |
+| Memória RAM | 8 GB |
+| Armazenamento | 100 GB NVMe/SSD |
+| Transferência | 8 TB/mês |
+
+#### Justificativa da escolha
+
+O plano **Hostinger KVM 2** foi escolhido por atender com folga os requisitos da stack: o Keycloak (IAM) consome aproximadamente 1,7–2 GB de RAM, o PostgreSQL cerca de 512 MB–1 GB, e o FastAPI é leve em memória. Com 8 GB de RAM, todos os serviços operam sem risco de travamentos, com margem para crescimento.
+
+#### Comparativo de provedores
+
+| Hospedagem | Preço anual | Servidor | CPU | Memória | Armazenamento | Transferência |
+|:-----------|:------------|:---------|:----|:--------|:--------------|:--------------|
+| Hostinger KVM 2 | R$ 599,88 | EUA | 2 vCPUs | 8 GB | 100 GB NVMe | 8 TB/mês |
+| Hostgator VPS NVMe 8 | R$ 1.019,88 | Brasil | 4 vCPUs | 8 GB | 200 GB NVMe | Ilimitada |
+
+A **Hostinger** foi a escolhida pelo melhor custo-benefício para a fase inicial do projeto. A Hostgator oferece servidor no Brasil (menor latência para usuários brasileiros) e mais CPU/armazenamento, sendo uma opção de upgrade natural caso o uso da aplicação cresça.
 
 ---
 
