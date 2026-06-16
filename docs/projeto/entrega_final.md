@@ -10,28 +10,91 @@ Seu principal objetivo é reunir tudo em um único ambiente acessível, onde mem
 
 Além disso, oferece suporte a líderes e administradores por meio de funcionalidades de organização de eventos, gerenciamento de voluntários e divulgação de informações.
 
-| Item | Detalhe |
-|:-----|:--------|
-| Cliente | Pra. Raquel Gomes — Diretora Nacional e Regional de Adolescentes (Região Central) |
-| Sistema em produção | [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) |
-| Repositório | [github.com/IDBJovem](https://github.com/IDBJovem) |
-| Documentação | [idbjovem.github.io/IDB_JOVEM_DOC](https://idbjovem.github.io/IDB_JOVEM_DOC/) |
-| Hospedagem Back-end | Hostinger VPS KVM 2 |
-| Hospedagem Front-end | Vercel |
-| Stack | Python, FastAPI, PostgreSQL, Docker, React, Playwright |
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Detalhe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cliente</td>
+      <td>Pra. Raquel Gomes — Diretora Nacional e Regional de Adolescentes (Região Central)</td>
+    </tr>
+    <tr>
+      <td>Sistema em produção</td>
+      <td><a href="https://www.idbjovemeteen.tech/">idbjovemeteen.tech</a></td>
+    </tr>
+    <tr>
+      <td>Repositório</td>
+      <td><a href="https://github.com/IDBJovem">github.com/IDBJovem</a></td>
+    </tr>
+    <tr>
+      <td>Documentação</td>
+      <td><a href="https://idbjovem.github.io/IDB_JOVEM_DOC/">idbjovem.github.io/IDB_JOVEM_DOC</a></td>
+    </tr>
+    <tr>
+      <td>Hospedagem Back-end</td>
+      <td>Hostinger VPS KVM 2</td>
+    </tr>
+    <tr>
+      <td>Hospedagem Front-end</td>
+      <td>Vercel</td>
+    </tr>
+    <tr>
+      <td>Stack</td>
+      <td>Python, FastAPI, PostgreSQL, Docker, React, Playwright</td>
+    </tr>
+  </tbody>
+</table>
+
+</center>
 
 ---
 
 ## Equipe
 
-| Membro | GitHub |
-|:-------|:-------|
-| Enzo Emir | [@EnzoEmir](https://github.com/EnzoEmir) |
-| Gabriel Monteiro | [@GabrielSMonteiro](https://github.com/GabrielSMonteiro) |
-| Leticia Arisa | [@Leticia-Arisa-K-Higa](https://github.com/Leticia-Arisa-K-Higa) |
-| Marcelo Makoto | [@MM4k](https://github.com/MM4k) |
-| Maria Eduarda | [@dudaa28](https://github.com/dudaa28) |
-| Victor Pontual | [@VictorPontual](https://github.com/VictorPontual) |
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Membro</th>
+      <th>GitHub</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Enzo Emir</td>
+      <td><a href="https://github.com/EnzoEmir">@EnzoEmir</a></td>
+    </tr>
+    <tr>
+      <td>Gabriel Monteiro</td>
+      <td><a href="https://github.com/GabrielSMonteiro">@GabrielSMonteiro</a></td>
+    </tr>
+    <tr>
+      <td>Leticia Arisa</td>
+      <td><a href="https://github.com/Leticia-Arisa-K-Higa">@Leticia-Arisa-K-Higa</a></td>
+    </tr>
+    <tr>
+      <td>Marcelo Makoto</td>
+      <td><a href="https://github.com/MM4k">@MM4k</a></td>
+    </tr>
+    <tr>
+      <td>Maria Eduarda</td>
+      <td><a href="https://github.com/dudaa28">@dudaa28</a></td>
+    </tr>
+    <tr>
+      <td>Victor Pontual</td>
+      <td><a href="https://github.com/VictorPontual">@VictorPontual</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</center>
 
 ---
 
@@ -47,51 +110,171 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 
 ## Ponto de Controle 1
 
-| Artefato | Descrição |
-|:---------|:----------|
-| Backlog do Produto | [Ver documentação](https://idbjovem.github.io/IDB_JOVEM_DOC/) |
-| Protótipo de Alta Fidelidade | Figma — telas web e mobile |
-| Docker | Ambiente containerizado configurado |
-| Back-end | 1 endpoint funcional em container |
-| Banco de dados | PostgreSQL com IDE integrada |
-| Front-end | Hello World React |
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Artefato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Backlog do Produto</td>
+      <td><a href="https://idbjovem.github.io/IDB_JOVEM_DOC/">Ver documentação</a></td>
+    </tr>
+    <tr>
+      <td>Protótipo de Alta Fidelidade</td>
+      <td>Figma — telas web e mobile</td>
+    </tr>
+    <tr>
+      <td>Docker</td>
+      <td>Ambiente containerizado configurado</td>
+    </tr>
+    <tr>
+      <td>Back-end</td>
+      <td>1 endpoint funcional em container</td>
+    </tr>
+    <tr>
+      <td>Banco de dados</td>
+      <td>PostgreSQL com IDE integrada</td>
+    </tr>
+    <tr>
+      <td>Front-end</td>
+      <td>Hello World React</td>
+    </tr>
+  </tbody>
+</table>
+
+</center>
 
 ---
 
 ## Ponto de Controle 2
 
-| Artefato | Descrição |
-|:---------|:----------|
-| Back-end completo | API FastAPI — web e mobile |
-| CI/CD | Pipeline configurado no repositório |
-| Clean Code | Código revisado e refatorado |
-| Testes parametrizados | Cobertura dos principais fluxos da API |
-| Testes de integração | Apontando para endpoints em container |
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Artefato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Back-end completo</td>
+      <td>API FastAPI — web e mobile</td>
+    </tr>
+    <tr>
+      <td>CI/CD</td>
+      <td>Pipeline configurado no repositório</td>
+    </tr>
+    <tr>
+      <td>Clean Code</td>
+      <td>Código revisado e refatorado</td>
+    </tr>
+    <tr>
+      <td>Testes parametrizados</td>
+      <td>Cobertura dos principais fluxos da API</td>
+    </tr>
+    <tr>
+      <td>Testes de integração</td>
+      <td>Apontando para endpoints em container</td>
+    </tr>
+  </tbody>
+</table>
+
+</center>
 
 ---
 
 ## Ponto de Controle 3
 
-| Artefato | Descrição |
-|:---------|:----------|
-| Front-end completo | Interface React — web e mobile |
-| Validação com a cliente | Pra. Raquel Gomes com conta corporativa em produção |
-| Vídeo tutorial | Treinamento de uso do sistema |
-| Testes E2E | Playwright cobrindo os fluxos críticos |
-| Hospedagem Front-end | Vercel |
-| Hospedagem Back-end | [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) — Hostinger |
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Artefato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Front-end completo</td>
+      <td>Interface React — web e mobile</td>
+    </tr>
+    <tr>
+      <td>Validação com a cliente</td>
+      <td>Pra. Raquel Gomes com conta corporativa em produção</td>
+    </tr>
+    <tr>
+      <td>Vídeo tutorial</td>
+      <td>Treinamento de uso do sistema</td>
+    </tr>
+    <tr>
+      <td>Testes E2E</td>
+      <td>Playwright cobrindo os fluxos críticos</td>
+    </tr>
+    <tr>
+      <td>Hospedagem Front-end</td>
+      <td>Vercel</td>
+    </tr>
+    <tr>
+      <td>Hospedagem Back-end</td>
+      <td><a href="https://www.idbjovemeteen.tech/">idbjovemeteen.tech</a> — Hostinger</td>
+    </tr>
+  </tbody>
+</table>
+
+</center>
 
 ### Stacks do Front-end
 
-| Tecnologia | Descrição |
-|:-----------|:----------|
-| [React 19](https://react.dev/) | Biblioteca JavaScript para criação da interface de usuário |
-| [Vite](https://vitejs.dev/) | Ferramenta de build extremamente rápida e servidor de desenvolvimento |
-| [Tailwind CSS 4](https://tailwindcss.com/) | Framework de CSS utilitário para estilização rápida e responsiva |
-| [React Router DOM](https://reactrouter.com/) | Biblioteca para gerenciamento de rotas e navegação da aplicação |
-| [Lucide React](https://lucide.dev/) | Biblioteca de ícones modernos e limpos |
-| [Playwright](https://playwright.dev/) | Framework de testes End-to-End (E2E) para testar fluxos de interface |
-| [NYC / Istanbul](https://istanbul.js.org/) | Ferramenta de instrumentação e relatório para cobertura de testes |
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Tecnologia</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://react.dev/">React 19</a></td>
+      <td>Biblioteca JavaScript para criação da interface de usuário</td>
+    </tr>
+    <tr>
+      <td><a href="https://vitejs.dev/">Vite</a></td>
+      <td>Ferramenta de build extremamente rápida e servidor de desenvolvimento</td>
+    </tr>
+    <tr>
+      <td><a href="https://tailwindcss.com/">Tailwind CSS 4</a></td>
+      <td>Framework de CSS utilitário para estilização rápida e responsiva</td>
+    </tr>
+    <tr>
+      <td><a href="https://reactrouter.com/">React Router DOM</a></td>
+      <td>Biblioteca para gerenciamento de rotas e navegação da aplicação</td>
+    </tr>
+    <tr>
+      <td><a href="https://lucide.dev/">Lucide React</a></td>
+      <td>Biblioteca de ícones modernos e limpos</td>
+    </tr>
+    <tr>
+      <td><a href="https://playwright.dev/">Playwright</a></td>
+      <td>Framework de testes End-to-End (E2E) para testar fluxos de interface</td>
+    </tr>
+    <tr>
+      <td><a href="https://istanbul.js.org/">NYC / Istanbul</a></td>
+      <td>Ferramenta de instrumentação e relatório para cobertura de testes</td>
+    </tr>
+  </tbody>
+</table>
+
+</center>
 
 ### Hospedagem
 
@@ -101,30 +284,109 @@ O projeto adota uma arquitetura dividida: o **frontend** é servido via CDN glob
 
 #### Especificações do VPS
 
-| Recurso | Especificação |
-|:--------|:--------------|
-| CPU | 2 vCPUs |
-| Memória RAM | 8 GB |
-| Armazenamento | 100 GB NVMe/SSD |
-| Transferência | 8 TB/mês |
+<center>
 
-#### Justificativa da escolha
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Recurso</th>
+      <th>Especificação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CPU</td>
+      <td>2 vCPUs</td>
+    </tr>
+    <tr>
+      <td>Memória RAM</td>
+      <td>8 GB</td>
+    </tr>
+    <tr>
+      <td>Armazenamento</td>
+      <td>100 GB NVMe/SSD</td>
+    </tr>
+    <tr>
+      <td>Transferência</td>
+      <td>8 TB/mês</td>
+    </tr>
+  </tbody>
+</table>
 
-O plano **Hostinger KVM 2** foi escolhido por atender com folga os requisitos da stack: o Keycloak (IAM) consome aproximadamente 1,7–2 GB de RAM, o PostgreSQL cerca de 512 MB–1 GB, e o FastAPI é leve em memória. Com 8 GB de RAM, todos os serviços operam sem risco de travamentos, com margem para crescimento.
+</center>
 
 #### Comparativo de provedores
 
-| Hospedagem | Preço anual | Servidor | CPU | Memória | Armazenamento | Transferência |
-|:-----------|:------------|:---------|:----|:--------|:--------------|:--------------|
-| Hostinger KVM 2 | R$ 599,88 | EUA | 2 vCPUs | 8 GB | 100 GB NVMe | 8 TB/mês |
-| Hostgator VPS NVMe 8 | R$ 1.019,88 | Brasil | 4 vCPUs | 8 GB | 200 GB NVMe | Ilimitada |
+<center>
 
-A **Hostinger** foi a escolhida pelo melhor custo-benefício para a fase inicial do projeto. A Hostgator oferece servidor no Brasil (menor latência para usuários brasileiros) e mais CPU/armazenamento, sendo uma opção de upgrade natural caso o uso da aplicação cresça.
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Hospedagem</th>
+      <th>Preço anual</th>
+      <th>Servidor</th>
+      <th>CPU</th>
+      <th>Memória</th>
+      <th>Armazenamento</th>
+      <th>Transferência</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hostinger KVM 2</td>
+      <td>R$ 599,88</td>
+      <td>EUA</td>
+      <td>2 vCPUs</td>
+      <td>8 GB</td>
+      <td>100 GB NVMe</td>
+      <td>8 TB/mês</td>
+    </tr>
+    <tr>
+      <td>Hostgator VPS NVMe 8</td>
+      <td>R$ 1.019,88</td>
+      <td>Brasil</td>
+      <td>4 vCPUs</td>
+      <td>8 GB</td>
+      <td>200 GB NVMe</td>
+      <td>Ilimitada</td>
+    </tr>
+  </tbody>
+</table>
+
+</center>
+
+A **Hostinger** foi escolhida pelo melhor custo-benefício para a fase inicial do projeto. A Hostgator oferece servidor no Brasil (menor latência para usuários brasileiros) e mais CPU/armazenamento, sendo uma opção de upgrade natural caso o uso da aplicação cresça.
 
 ---
 
 ## Histórico de Versão
 
-| Versão | Data | Descrição | Autor(es) |
-|:-------|:-----|:----------|:----------|
-| `1.0` | 16/06/2026 | Criação da página de entrega final | [Enzo Emir](https://github.com/EnzoEmir), [Gabriel Monteiro](https://github.com/GabrielSMonteiro), [Leticia Arisa](https://github.com/Leticia-Arisa-K-Higa), [Marcelo Makoto](https://github.com/MM4k), [Maria Eduarda](https://github.com/dudaa28), [Victor Pontual](https://github.com/VictorPontual) |
+<center>
+
+<table border="1" cellspacing="0" cellpadding="4">
+  <thead>
+    <tr>
+      <th>Versão</th>
+      <th>Data</th>
+      <th>Descrição</th>
+      <th>Autor(es)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>1.0</code></td>
+      <td>16/06/2026</td>
+      <td>Criação da página de entrega final</td>
+      <td>
+        <a href="https://github.com/EnzoEmir">Enzo Emir</a>,
+        <a href="https://github.com/GabrielSMonteiro">Gabriel Monteiro</a>,
+        <a href="https://github.com/Leticia-Arisa-K-Higa">Leticia Arisa</a>,
+        <a href="https://github.com/MM4k">Marcelo Makoto</a>,
+        <a href="https://github.com/dudaa28">Maria Eduarda</a>,
+        <a href="https://github.com/VictorPontual">Victor Pontual</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</center>
