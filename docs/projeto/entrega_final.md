@@ -95,7 +95,7 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 
 ### Hospedagem
 
-> 📄 A documentação completa sobre o levantamento de hospedagem pode ser acessada em: [Hospedagem_IDB.pdf](../assets/Hospedagem_IDB.pdf)
+**A documentação completa sobre o levantamento de hospedagem pode ser acessada em:** [Hospedagem_IDB.pdf](../assets/Hospedagem_IDB.pdf)
 
 O projeto adota uma arquitetura dividida: o **frontend** é servido via CDN global pela **Vercel** (gratuito, deploy automático a cada push no GitHub), enquanto o **backend**, banco de dados e autenticação rodam em um **VPS Hostinger KVM 2**.
 
