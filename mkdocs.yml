@@ -47,7 +47,8 @@ nav:
       - Canvas MVP: projeto/canvas_mvp.md
       - Protótipo de alta fidelidade: projeto/prototipo_alta.md
       - Modelo Físico: projeto/modelo_fisico.md
-
+      - Entrega Final: projeto/entrega_final.md
+      
 markdown_extensions:
   - admonition
   - tables
