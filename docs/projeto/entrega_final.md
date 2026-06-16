@@ -10,10 +10,8 @@ Seu principal objetivo é reunir tudo em um único ambiente acessível, onde mem
 
 Além disso, oferece suporte a líderes e administradores por meio de funcionalidades de organização de eventos, gerenciamento de voluntários e divulgação de informações.
 
-<div align="center">
-
 | Item | Detalhe |
-|------|---------|
+|:-----|:--------|
 | Cliente | Pra. Raquel Gomes — Diretora Nacional e Regional de Adolescentes (Região Central) |
 | Sistema em produção | [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) |
 | Repositório | [github.com/IDBJovem](https://github.com/IDBJovem) |
@@ -22,24 +20,18 @@ Além disso, oferece suporte a líderes e administradores por meio de funcionali
 | Hospedagem Front-end | Vercel |
 | Stack | Python, FastAPI, PostgreSQL, Docker, React, Playwright |
 
-</div>
-
 ---
 
 ## Equipe
 
-<div align="center">
-
 | Membro | GitHub |
-|--------|--------|
+|:-------|:-------|
 | Enzo Emir | [@EnzoEmir](https://github.com/EnzoEmir) |
 | Gabriel Monteiro | [@GabrielSMonteiro](https://github.com/GabrielSMonteiro) |
 | Leticia Arisa | [@Leticia-Arisa-K-Higa](https://github.com/Leticia-Arisa-K-Higa) |
 | Marcelo Makoto | [@MM4k](https://github.com/MM4k) |
 | Maria Eduarda | [@dudaa28](https://github.com/dudaa28) |
 | Victor Pontual | [@VictorPontual](https://github.com/VictorPontual) |
-
-</div>
 
 ---
 
@@ -55,10 +47,8 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 
 ## Ponto de Controle 1
 
-<div align="center">
-
-| Artefato | |
-|----------|-|
+| Artefato | Descrição |
+|:---------|:----------|
 | Backlog do Produto | [Ver documentação](https://idbjovem.github.io/IDB_JOVEM_DOC/) |
 | Protótipo de Alta Fidelidade | Figma — telas web e mobile |
 | Docker | Ambiente containerizado configurado |
@@ -66,44 +56,35 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 | Banco de dados | PostgreSQL com IDE integrada |
 | Front-end | Hello World React |
 
-</div>
-
 ---
 
 ## Ponto de Controle 2
 
-<div align="center">
-
-| Artefato | |
-|----------|-|
+| Artefato | Descrição |
+|:---------|:----------|
 | Back-end completo | API FastAPI — web e mobile |
 | CI/CD | Pipeline configurado no repositório |
 | Clean Code | Código revisado e refatorado |
 | Testes parametrizados | Cobertura dos principais fluxos da API |
 | Testes de integração | Apontando para endpoints em container |
 
-</div>
-
 ---
 
 ## Ponto de Controle 3
 
-<div align="center">
-
-| Artefato | |
-|----------|-|
+| Artefato | Descrição |
+|:---------|:----------|
 | Front-end completo | Interface React — web e mobile |
 | Validação com a cliente | Pra. Raquel Gomes com conta corporativa em produção |
 | Vídeo tutorial | Treinamento de uso do sistema |
 | Testes E2E | Playwright cobrindo os fluxos críticos |
-| Hospedagem | Front: Vercel — Back: [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) (Hostinger) |
-
-</div>
+| Hospedagem Front-end | Vercel |
+| Hospedagem Back-end | [idbjovemeteen.tech](https://www.idbjovemeteen.tech/) — Hostinger |
 
 ### Tecnologias do Front-end
 
 | Tecnologia | Descrição |
-|------------|-----------|
+|:-----------|:----------|
 | [React 19](https://react.dev/) | Biblioteca JavaScript para criação da interface de usuário |
 | [Vite](https://vitejs.dev/) | Ferramenta de build extremamente rápida e servidor de desenvolvimento |
 | [Tailwind CSS 4](https://tailwindcss.com/) | Framework de CSS utilitário para estilização rápida e responsiva |
@@ -116,10 +97,6 @@ A entrega principal consiste no vídeo de validação com a cliente utilizando o
 
 ## Histórico de Versão
 
-<div align="center">
-
 | Versão | Data | Descrição | Autor(es) |
-|--------|------|-----------|-----------|
+|:-------|:-----|:----------|:----------|
 | `1.0` | 16/06/2026 | Criação da página de entrega final | [Enzo Emir](https://github.com/EnzoEmir), [Gabriel Monteiro](https://github.com/GabrielSMonteiro), [Leticia Arisa](https://github.com/Leticia-Arisa-K-Higa), [Marcelo Makoto](https://github.com/MM4k), [Maria Eduarda](https://github.com/dudaa28), [Victor Pontual](https://github.com/VictorPontual) |
-
-</div>
